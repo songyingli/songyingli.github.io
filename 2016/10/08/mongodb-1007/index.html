@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Emily Blogs</title>
+  <meta name="author" content="Song YingLi">
+  
+  <meta name="description" content="Mongodb数据库基本操作
+图片引用的方法，在github中找到图片，在图片上右击，执行“复制图片地址”命令。
+一、启动
+创建文件夹
+1$ mkdir -p data/db
+“-p”:参数的作用是同时创建父文件夹和子文件夹，多级文件夹
+执行上面命令后是在创建的data文件夹中再创建db文件夹
+
+
+">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Emily Blogs"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Emily Blogs" type="application/atom+xml">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" href="/css/style.css">
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-368771XX-X']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <header id="header" class='normal_mode'>
+    <nav id="main-nav">
+  <ul class='container'>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+  </header>
+  <div id="content" class="container">
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+      <time datetime="2016-10-08T13:12:03.529Z"><a href="/2016/10/08/mongodb-1007/">Sat, Oct 8 2016, 9:12:03 pm</a></time>
+
+  
+    <h1 class="title"></h1>
+  
+
+
+
+<div class="clear"></div>
+      
+    </header>
+    <div class="entry">
+      
+        <h1 id="Mongodb数据库基本操作"><a href="#Mongodb数据库基本操作" class="headerlink" title="Mongodb数据库基本操作"></a>Mongodb数据库基本操作</h1><p><img src="https://github.com/songyingli/my-notes/blob/master/image/mongodb.jpg?raw=true" alt=""></p>
+<p>图片引用的方法，在github中找到图片，在图片上右击，执行“复制图片地址”命令。</p>
+<h2 id="一、启动"><a href="#一、启动" class="headerlink" title="一、启动"></a>一、启动</h2><ul>
+<li><p>创建文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mkdir -p data/db</div></pre></td></tr></table></figure>
+<p>“-p”:参数的作用是同时创建父文件夹和子文件夹，多级文件夹</p>
+<p>执行上面命令后是在创建的data文件夹中再创建db文件夹</p>
+</li>
+</ul>
+<ul>
+<li><p>启动数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mongod --dbpath=./data/db</div></pre></td></tr></table></figure>
+<p>–dbpath后的值表示数据库文件的存储路径,而且后面的路径必须事先创建好，必须已经存在，否则服务开启失败</p>
+</li>
+</ul>
+<h2 id="二、mongodb启动操作界面"><a href="#二、mongodb启动操作界面" class="headerlink" title="二、mongodb启动操作界面"></a>二、mongodb启动操作界面</h2><ul>
+<li><p>用户图形接口 <strong>GUI</strong></p>
+</li>
+<li><p>命令行接口 <strong>CLI</strong></p>
+<p>对于 mongodb 我们使用 mongo shell 这个命令行来操作，启动mongo shell 的形式是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mongo</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="三、创建一个数据库"><a href="#三、创建一个数据库" class="headerlink" title="三、创建一个数据库"></a>三、创建一个数据库</h2><h3 id="1-开启Mongo-shell命令行"><a href="#1-开启Mongo-shell命令行" class="headerlink" title="1.开启Mongo shell命令行"></a>1.开启Mongo shell命令行</h3>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mongo</div></pre></td></tr></table></figure>
+<h3 id="2-创建一个数据库"><a href="#2-创建一个数据库" class="headerlink" title="2.创建一个数据库"></a>2.创建一个数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ use digicity-express-api</div></pre></td></tr></table></figure>
+<p>注：如果此数据库存在，则切换到此数据库下,如果此数据库还不存在也可以切过来</p>
+<p>数据库是mongodb中的顶级存储单位，之下一级是 <strong>集合</strong></p>
+<h3 id="3-创建一个空集合"><a href="#3-创建一个空集合" class="headerlink" title="3.创建一个空集合"></a>3.创建一个空集合</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ db.createCollection(&apos;posts&apos;)</div></pre></td></tr></table></figure>
+<h3 id="4-插入数据记录"><a href="#4-插入数据记录" class="headerlink" title="4.插入数据记录"></a>4.插入数据记录</h3><p>一个集合（例如：posts），里面可以插入多个数据记录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ db.posts.insert(&#123;title:&apos;myTitle&apos;,content:&apos;myContent&apos;&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="5-查看集合中的数据记录"><a href="#5-查看集合中的数据记录" class="headerlink" title="5.查看集合中的数据记录"></a>5.查看集合中的数据记录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ db.posts.find()</div></pre></td></tr></table></figure>
+<h3 id="6-修改记录的内容（了解）"><a href="#6-修改记录的内容（了解）" class="headerlink" title="6.修改记录的内容（了解）"></a>6.修改记录的内容（了解）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ db.posts.update(&#123;_id: ObjectId(&apos;xxx&apos;)&#125;, &#123;$set: &#123;title: &apos;mongodb&apos;&#125;&#125;)</div></pre></td></tr></table></figure>
+<h3 id="7-删除一条记录"><a href="#7-删除一条记录" class="headerlink" title="7.删除一条记录"></a>7.删除一条记录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ db.posts.remove(&#123;_id: ObjectId(&apos;xxx&apos;)&#125;)</div></pre></td></tr></table></figure>
+<h3 id="8-删除-posts-集合中的所有记录"><a href="#8-删除-posts-集合中的所有记录" class="headerlink" title="8.删除 posts 集合中的所有记录"></a>8.删除 posts 集合中的所有记录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ db.posts.remove(&#123;&#125;)</div></pre></td></tr></table></figure>
+<h3 id="9-删除集合"><a href="#9-删除集合" class="headerlink" title="9.删除集合"></a>9.删除集合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ db.posts.drop()</div></pre></td></tr></table></figure>
+<h3 id="10-删除数据库"><a href="#10-删除数据库" class="headerlink" title="10.删除数据库"></a>10.删除数据库</h3><p>假设我们的数据库叫做 digicity-express-api<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ use digicity-express-api</div><div class="line">$ db.dropDatabase()</div></pre></td></tr></table></figure></p>
+<p>用命令行操作mongodb不常用，要使用代码去操作数据库。</p>
+<h2 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h2><ul>
+<li><p>打开全局查找 ctrl+shift+f</p>
+</li>
+<li><p>关闭全局查找 esc</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+          
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <span class="jiathis_txt">分享到：</span>
+  <a class="jiathis_button_weixin">微信</a>
+  <a class="jiathis_button_tsina">新浪微博</a>
+  <a class="jiathis_button_renren">人人网</a>
+  <a class="jiathis_button_qzone">QQ空间</a>
+  <a class="jiathis_button_douban">豆瓣</a>
+  <a class="jiathis_button_pocket">Pocket</a>
+  <a href="http://www.jiathis.com/share?uid=901656" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=901656" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+          <div class="clearfix"></div>
+          <nav id="pagination">
+  
+    <a href="/2016/10/08/mongoose-1007/" class="alignleft prev"><i class="fa fa-long-arrow-left"></i>Next</a>
+  
+  
+    <a href="/2016/10/07/test/" class="alignright next">Prev<i class="fa fa-long-arrow-right"></i></a>
+  
+  <div class="clearfix"></div>
+</nav>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Kommentare</h1>
+
+  
+      <!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread" data-thread-key="/2016/10/08/mongodb-1007/"></div>
+<!-- Duoshuo Comment END -->
+  
+</section>
+
+
+
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div>
+  
+  &copy; 2016 Song YingLi
+  
+</div>
+Powered by <a href="http://zespia.tw/hexo/" title="Hexo" target="_blank" rel="external">Hexo</a> and <a href="http://pages.github.com/" title="GitHub Pages" target="_blank" rel="external">GitHub Pages</a>
+
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+
+
+
+    <script type="text/javascript">
+        (function(){
+
+            $(window).scroll(function(){
+
+                var scrollTop = $(window).scrollTop();
+                if ( scrollTop >200 ){
+                    $("#main-nav").removeClass('normal_mode').addClass('top_mode');
+                } else{
+                    $("#main-nav").removeClass('top_mode').addClass('normal_mode');
+                }
+
+            });
+
+        })();
+    </script>
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox({
+      'titlePosition': 'inside'
+    });
+  })(jQuery);
+  </script>
+
+
+
+    
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"your_id"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = 'http://static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] 
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+
+
+<script type="text/javascript">
+  
+  $(function(){
+
+    $('.title').hover(
+      function() {      
+        $(this).stop().animate(
+          {'marginLeft': '10px'}, 200
+        );   
+      }, 
+      function() {       
+        $(this).stop().animate({'marginLeft': '0px'}, 200);      
+      
+    });   
+
+  });
+
+</script>
+
+
+</body>
+</html>
